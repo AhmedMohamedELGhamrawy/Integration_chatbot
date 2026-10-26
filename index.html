@@ -18,12 +18,13 @@
             padding: 10px 20px;
             display: flex;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: flex-start; /* بيخليهم يبدأوا من اليمين */
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         .header img {
             height: 40px;
-            margin-left: 15px;
+            margin-left: 15px; /* مسافة بين اللوجو والاسم */
+            margin-right: 0;
         }
         .header h1 {
             font-size: 18px;
@@ -46,11 +47,10 @@
     <iframe id="chatFrame"></iframe>
 
     <script>
-        // توليد معرف جلسة عشوائي جديد تماماً في كل مرة يتم فيها فتح الصفحة أو عمل تحديث
-        const randomSession = 'session_' + Math.random().toString(36.substring(2, 15));
+        // توليد معرف جلسة عشوائي جديد تماماً لضمان بدء محادثة جديدة كل ما تُفتح الصفحة
+        const randomSession = 'session_' + Math.random().toString(36).substring(2, 15);
         const chatUrl = "https://n8n.srv1165413.hstgr.cloud/webhook/integration-group-chatbot/chat?sessionId=" + randomSession;
         
-        // وضع الرابط الجديد بالـ Session العشوائي داخل الـ iframe
         document.getElementById('chatFrame').src = chatUrl;
     </script>
 </body>
