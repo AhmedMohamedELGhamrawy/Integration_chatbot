@@ -43,12 +43,15 @@
         <h1>Integration Group - We know the way</h1>
     </div>
     
-    <iframe id="chatFrame" src="https://n8n.srv1165413.hstgr.cloud/webhook/integration-group-chatbot/chat"></iframe>
+    <iframe id="chatFrame"></iframe>
 
     <script>
-        // مسح الـ Session القديمة تلقائياً عند فتح الصفحة لبدء محادثة جديدة
-        localStorage.clear();
-        sessionStorage.clear();
+        // توليد معرف جلسة عشوائي جديد تماماً في كل مرة يتم فيها فتح الصفحة أو عمل تحديث
+        const randomSession = 'session_' + Math.random().toString(36.substring(2, 15));
+        const chatUrl = "https://n8n.srv1165413.hstgr.cloud/webhook/integration-group-chatbot/chat?sessionId=" + randomSession;
+        
+        // وضع الرابط الجديد بالـ Session العشوائي داخل الـ iframe
+        document.getElementById('chatFrame').src = chatUrl;
     </script>
 </body>
 </html>
