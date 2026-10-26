@@ -43,6 +43,12 @@
         <h1>Integration Group - We know the way</h1>
     </div>
     
-    <iframe src="https://n8n.srv1165413.hstgr.cloud/webhook/integration-group-chatbot/chat"></iframe>
+    <iframe id="chatFrame" src="https://n8n.srv1165413.hstgr.cloud/webhook/integration-group-chatbot/chat"></iframe>
+
+    <script>
+        // مسح الـ Session القديمة تلقائياً عند فتح الصفحة لبدء محادثة جديدة
+        localStorage.clear();
+        sessionStorage.clear();
+    </script>
 </body>
 </html>
